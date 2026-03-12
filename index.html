@@ -1204,8 +1204,76 @@
   <p style="margin-top: 8px; opacity: 0.6;">מרץ 2026</p>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-  // Clear placeholder on focus, restore on blur if empty
+  const SUPABASE_URL = 'https://lyzwyondclnktngnplbq.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5end5b25kY2xua3RuZ25wbGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NDk5MjMsImV4cCI6MjA4NzUyNTkyM30.mZjhyOef3UQuU4S8ez0tk-M2jSNUkT2Ng_uY57D17Og';
+  const SLUG = 'dayo-tech';
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { db: { schema: 'client_work' } });
+
+  let responses = {};
+  let saveTimeout = null;
+
+  // Save indicator
+  const indicator = document.createElement('div');
+  indicator.id = 'save-indicator';
+  indicator.style.cssText = 'position:fixed;bottom:24px;left:24px;background:#013024;color:#b5e86c;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;transition:opacity 0.3s;z-index:999;font-family:Heebo,sans-serif;';
+  document.body.appendChild(indicator);
+
+  function showSaveStatus(text, duration) {
+    indicator.textContent = text;
+    indicator.style.opacity = '1';
+    if (duration) setTimeout(() => indicator.style.opacity = '0', duration);
+  }
+
+  // Get question ID from element
+  function getQuestionId(el) {
+    const group = el.closest('.question-group');
+    if (!group) return null;
+    const qNum = group.querySelector('.q-num');
+    return qNum ? qNum.textContent.trim() : null;
+  }
+
+  // Debounced save
+  function scheduleSave() {
+    clearTimeout(saveTimeout);
+    showSaveStatus('שומר...');
+    saveTimeout = setTimeout(async () => {
+      const { error } = await sb.from('discovery_responses')
+        .update({ responses, updated_at: new Date().toISOString() })
+        .eq('slug', SLUG);
+      showSaveStatus(error ? 'שגיאה בשמירה' : 'נשמר בהצלחה', 2000);
+    }, 800);
+  }
+
+  // Load saved data
+  async function loadResponses() {
+    const { data, error } = await sb.from('discovery_responses')
+      .select('responses').eq('slug', SLUG).single();
+    if (error || !data) return;
+    responses = data.responses || {};
+
+    // Restore text answers
+    document.querySelectorAll('.answer-box[contenteditable]').forEach(box => {
+      const qId = getQuestionId(box);
+      if (qId && responses[qId]?.text) {
+        box.textContent = responses[qId].text;
+        box.style.fontStyle = 'normal';
+        box.style.color = 'var(--gray-800)';
+      }
+    });
+
+    // Restore selected options
+    document.querySelectorAll('.option-item').forEach(item => {
+      const qId = getQuestionId(item);
+      const label = item.querySelector('span')?.textContent.trim();
+      if (qId && responses[qId]?.selected?.includes(label)) {
+        item.classList.add('selected');
+      }
+    });
+  }
+
+  // Placeholder behavior + auto-save on blur
   document.querySelectorAll('.answer-box[contenteditable]').forEach(box => {
     const placeholder = box.textContent.trim();
     box.addEventListener('focus', function() {
@@ -1216,13 +1284,45 @@
       }
     });
     box.addEventListener('blur', function() {
-      if (this.textContent.trim() === '') {
+      const val = this.textContent.trim();
+      if (val === '' || val === placeholder) {
         this.textContent = placeholder;
         this.style.fontStyle = 'italic';
         this.style.color = 'var(--gray-600)';
+        const qId = getQuestionId(this);
+        if (qId && responses[qId]) { delete responses[qId].text; scheduleSave(); }
+      } else {
+        const qId = getQuestionId(this);
+        if (qId) {
+          if (!responses[qId]) responses[qId] = {};
+          responses[qId].text = val;
+          scheduleSave();
+        }
       }
     });
   });
+
+  // Option click handler with save
+  document.querySelectorAll('.option-item').forEach(item => {
+    item.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const qId = getQuestionId(this);
+      if (!qId) return;
+      // Collect all selected for this question
+      const group = this.closest('.question-group');
+      const selected = [...group.querySelectorAll('.option-item.selected')]
+        .map(el => el.querySelector('span')?.textContent.trim()).filter(Boolean);
+      if (!responses[qId]) responses[qId] = {};
+      responses[qId].selected = selected;
+      scheduleSave();
+    });
+  });
+
+  // Remove inline onclick (we handle it above)
+  document.querySelectorAll('.option-item[onclick]').forEach(el => el.removeAttribute('onclick'));
+
+  // Load on page ready
+  loadResponses();
 </script>
 
 </body>
