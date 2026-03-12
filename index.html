@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Document — יוסי &amp; יעקב | מערכת שיווק AI אוטומטית</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-lime: #b5e86c;
+    --brand-lime-light: #c8f08a;
+    --brand-lime-dark: #9dd44e;
+    --brand-green: #013024;
+    --brand-green-light: #024a39;
+    --brand-green-dark: #021a15;
+    --brand-mid: #7ac230;
+    --white: #ffffff;
+    --gray-100: #f7f7f7;
+    --gray-200: #e5e5e5;
+    --gray-300: #d4d4d4;
+    --gray-600: #525252;
+    --gray-800: #262626;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 16px;
+    padding-bottom: 80px;
+  }
+
+  /* --- HEADER --- */
+  .header {
+    background: linear-gradient(135deg, var(--brand-green-dark) 0%, var(--brand-green) 50%, var(--brand-green-light) 100%);
+    color: var(--white);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(181, 232, 108, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(181, 232, 108, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: rgba(181, 232, 108, 0.15);
+    border: 1px solid rgba(181, 232, 108, 0.3);
+    color: var(--brand-lime);
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+
+  .header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .header h1 span { color: var(--brand-lime); }
+
+  .header p.subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    opacity: 0.85;
+    margin-bottom: 32px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  .header-meta div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-meta .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--brand-lime);
+    border-radius: 50%;
+  }
+
+  /* --- MAIN --- */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* --- INTRO BOX --- */
+  .intro-box {
+    background: linear-gradient(135deg, var(--brand-green-dark), var(--brand-green));
+    color: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 24px;
+  }
+
+  .intro-box h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--brand-lime);
+  }
+
+  .intro-box p {
+    opacity: 0.85;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .intro-box .highlight {
+    color: var(--brand-lime);
+    font-weight: 600;
+  }
+
+  /* --- SECTIONS --- */
+  .section {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid var(--gray-200);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gray-100);
+  }
+
+  .section-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--brand-green), var(--brand-green-light));
+    color: var(--brand-lime);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--brand-green);
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-top: 2px;
+  }
+
+  /* --- QUESTIONS --- */
+  .question-group {
+    margin-bottom: 28px;
+  }
+
+  .question-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .question-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .question-label .q-num {
+    background: var(--brand-lime);
+    color: var(--brand-green);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .question-hint {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-bottom: 10px;
+    margin-right: 42px;
+  }
+
+  .answer-box {
+    background: var(--gray-100);
+    border: 2px dashed var(--gray-300);
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-height: 60px;
+    margin-right: 42px;
+    font-size: 14px;
+    color: var(--gray-600);
+    font-style: italic;
+    transition: border-color 0.2s;
+  }
+
+  .answer-box:hover {
+    border-color: var(--brand-lime-dark);
+  }
+
+  .answer-box[contenteditable]:focus {
+    outline: none;
+    border-color: var(--brand-lime);
+    border-style: solid;
+    font-style: normal;
+    color: var(--gray-800);
+  }
+
+  /* --- OPTIONS --- */
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-right: 42px;
+  }
+
+  .option-item {
+    background: var(--gray-100);
+    border: 2px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .option-item:hover {
+    border-color: var(--brand-lime);
+    background: rgba(181, 232, 108, 0.08);
+  }
+
+  .option-item.selected {
+    border-color: var(--brand-lime);
+    background: rgba(181, 232, 108, 0.12);
+  }
+
+  .option-check {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gray-300);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .option-item.selected .option-check {
+    background: var(--brand-lime);
+    border-color: var(--brand-lime);
+  }
+
+  .option-item.selected .option-check::after {
+    content: '\2713';
+    color: var(--brand-green);
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  /* --- PRIORITY TAG --- */
+  .priority-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 100px;
+    margin-right: 42px;
+    margin-bottom: 8px;
+  }
+
+  .priority-critical {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+
+  .priority-important {
+    background: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fde68a;
+  }
+
+  .priority-nice {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+  }
+
+  /* --- NEXT STEPS BOX --- */
+  .next-steps {
+    background: linear-gradient(135deg, var(--brand-green-dark), var(--brand-green));
+    color: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    margin-top: 8px;
+  }
+
+  .next-steps h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--brand-lime);
+  }
+
+  .next-steps ol {
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .next-steps ol li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  .next-steps ol li:last-child { border-bottom: none; }
+
+  .next-steps ol li::before {
+    content: counter(steps);
+    background: var(--brand-lime);
+    color: var(--brand-green);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  /* --- FOOTER --- */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--gray-600);
+    font-size: 14px;
+  }
+
+  .footer .brand {
+    font-weight: 700;
+    color: var(--brand-green);
+  }
+
+  .footer .brand span {
+    color: var(--brand-lime-dark);
+  }
+
+  /* --- PRINT --- */
+  @media print {
+    body { background: white; }
+    .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    .header { break-after: avoid; }
+    .option-item:hover { border-color: var(--gray-200); background: var(--gray-100); }
+    .answer-box { border-style: solid; border-color: #ddd; }
+  }
+
+  @media (max-width: 640px) {
+    .header { padding: 40px 24px; }
+    .header h1 { font-size: 30px; }
+    .section { padding: 24px; }
+    .options-grid { grid-template-columns: 1fr; }
+    .header-meta { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-content">
+    <div class="header-badge">DISCOVERY DOCUMENT</div>
+    <h1>מערכת שיווק AI אוטומטית &times; <span>Y-Community</span></h1>
+    <p class="subtitle">שאלון איסוף דרישות — יוסי &amp; יעקב</p>
+    <div class="header-meta">
+      <div><span class="dot"></span> לקוח: יוסי &amp; יעקב — DAYO-TECH (dayo-tech.com)</div>
+      <div><span class="dot"></span> ספק: רפאל יניב הרוש | Y-Community</div>
+      <div><span class="dot"></span> תאריך: מרץ 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- INTRO -->
+<div class="intro-box">
+  <h2>למה השאלון הזה?</h2>
+  <p>
+    כדי לבנות מערכת שיווק AI שבאמת עובדת — צריך להבין לעומק את העסק, את הקהל, ואת התוכן שצריך לייצר.<br><br>
+    השאלון הזה הוא <span class="highlight">הבסיס לכל מה שנבנה יחד.</span> ככל שהתשובות מפורטות יותר — כך המערכת תהיה מדויקת יותר ותייצר תוכן שבאמת מדבר בשפה שלכם.<br><br>
+    אחרי שתמלאו — אני אחזור עם הצעת מחיר מדויקת ותוכנית עבודה.
+  </p>
+</div>
+
+<!-- SECTION 1: WHAT WE ALREADY KNOW + VERIFY -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">1</div>
+    <div>
+      <div class="section-title">מה שאנחנו כבר יודעים — אשרו ותשלימו</div>
+      <div class="section-desc">בדקנו את האתר שלכם — רק ודאו שהכל מדויק</div>
+    </div>
+  </div>
+
+  <div class="question-group" style="background: rgba(181,232,108,0.06); border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid rgba(181,232,108,0.2);">
+    <div style="font-size: 14px; font-weight: 600; color: var(--brand-green); margin-bottom: 12px;">מה שמצאנו באתר:</div>
+    <div style="font-size: 14px; line-height: 2; color: var(--gray-800);">
+      <strong>חברה:</strong> DAYO-TECH E2E Solutions | פתח תקווה<br>
+      <strong>מייסד:</strong> Yossi Kleiner<br>
+      <strong>תחום:</strong> פתרונות DevOps מקצה לקצה — ייעוץ, עיצוב מערכות, הטמעה, הדרכה ותחזוקה<br>
+      <strong>מומחיות:</strong> DevOps, Cloud, Linux, Storage, Microsoft, Cyber Security<br>
+      <strong>לקוחות:</strong> בר אילן, הדסה, הטכניון, ויצמן, משרד הבריאות, סלקום, NVIDIA, Core Photonics, Cyrebro ועוד<br>
+      <strong>שותפים:</strong> HPE, Dell, Veeam, NVIDIA<br>
+      <strong>נוכחות ברשתות:</strong> כרגע אין (כתוב "coming soon" באתר)
+    </div>
+  </div>
+
+  <div class="question-group" style="background: rgba(220,38,38,0.04); border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid rgba(220,38,38,0.15);">
+    <div style="font-size: 14px; font-weight: 600; color: #dc2626; margin-bottom: 12px;">הזדמנויות שזיהינו (דברים שאני יכול לעזור בהם):</div>
+    <div style="font-size: 14px; line-height: 2.2; color: var(--gray-800);">
+      <span style="color: #dc2626; font-weight: 600;">1.</span> <strong>האתר בנוי על Wix</strong> — אתר בסיסי שלא מייצג חברה שעובדת עם NVIDIA, הטכניון וויצמן. חסרים: בלוג, Case Studies, עמוד שירותים מפורט, SEO<br>
+      <span style="color: #dc2626; font-weight: 600;">2.</span> <strong>אפס נוכחות ברשתות</strong> — לינקדאין ריק, אין פעילות שיווקית כלל. עם רשימת הלקוחות שלכם זה כסף שנשאר על הרצפה<br>
+      <span style="color: #dc2626; font-weight: 600;">3.</span> <strong>רשימת לקוחות מרשימה שלא מנוצלת</strong> — NVIDIA, הטכניון, הדסה, ויצמן, משרד הבריאות — אין Case Studies, אין המלצות, אין סיפורי הצלחה<br>
+      <span style="color: #dc2626; font-weight: 600;">4.</span> <strong>האתר באנגלית בלבד</strong> — חלק מהלקוחות שלכם ישראלים (בר אילן, הדסה, סלקום) — אין גרסה עברית<br>
+      <span style="color: #dc2626; font-weight: 600;">5.</span> <strong>אין הבדלה מהמתחרים</strong> — האתר אומר "E2E Solutions" אבל לא מסביר למה לבחור ב-DAYO-TECH ולא במישהו אחר
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">1.1</span>
+      האם הפרטים למעלה מדויקים? יש משהו שצריך לתקן או להוסיף?
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">1.2</span>
+      מי הלקוח האידיאלי שלכם? מה מבדיל אתכם מהמתחרים?
+    </div>
+    <div class="question-hint">למשל: אנחנו הכי טובים ב-___, הלקוחות באים אלינו בגלל ___</div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">1.3</span>
+      האם אתם פועלים רק בישראל או גם בחו"ל?
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>ישראל בלבד</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>ישראל + חו"ל</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>חו"ל בלבד</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>רוצים להתרחב לחו"ל</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: EXISTING CONTENT & KNOWLEDGE -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">2</div>
+    <div>
+      <div class="section-title">התוכן והידע הקיים</div>
+      <div class="section-desc">מה כבר יש לכם שאפשר לבנות עליו</div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">2.1</span>
+      ה"המון מידע" שצברתם — איפה הוא נמצא? באיזה פורמט?
+    </div>
+    <div class="question-hint">מסמכים, מצגות, הקלטות, מיילים, דפי מוצר, מאמרים, קוד, בלוג...</div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">2.2</span>
+      על אילו נושאים מרכזיים יש לכם ידע עמוק? (תחומי המומחיות)
+    </div>
+    <div class="question-hint">למשל: Kubernetes, CI/CD, Cloud Migration, HPC, Data Center, Virtualization, Backup & DR...</div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">2.3</span>
+      ראינו שאין עדיין נוכחות ברשתות. האם ניסיתם בעבר? מה עצר אתכם?
+    </div>
+    <div class="question-hint">לא היה זמן, לא ידעתם מה לכתוב, לא ראיתם ערך, ניסיתם ועזבתם...</div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">2.4</span>
+      כמה פעמים בשבוע/חודש אתם מפרסמים תוכן היום?
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>כמעט לא מפרסמים</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>1-2 פעמים בחודש</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>פעם בשבוע</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>כמה פעמים בשבוע</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">2.5</span>
+      מי אחראי על יצירת התוכן היום? איך זה עובד?
+    </div>
+    <div class="question-hint">יוסי כותב בעצמו? יש מישהו שיווקי? פרילנסר? לא מייצרים בכלל?</div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">2.6</span>
+      מה הכי כואב לכם היום בנושא שיווק ותוכן?
+    </div>
+    <div class="question-hint">אין זמן? לא יודעים מה לכתוב? הניסיון לא מתורגם לתוכן? אין עקביות?</div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+</div>
+
+<!-- SECTION 3: THE VISION — WHAT DO THEY WANT -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">3</div>
+    <div>
+      <div class="section-title">החזון — מה אתם רוצים</div>
+      <div class="section-desc">הגדרת הפלט הרצוי ומה "הצלחה" נראית עבורכם</div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">3.1</span>
+      מהי המטרה העיקרית של מערכת השיווק? (סמנו עד 2)
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>מיתוג — להיות "השם" בתחום</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>לידים — להביא לקוחות חדשים</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>גיוס עובדים — למשוך טאלנט</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>שותפויות — למשוך שותפים עסקיים</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">3.2</span>
+      איזה סוגי תוכן אתם רוצים שייצרו עבורכם? (סמנו את כל מה שרלוונטי)
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>פוסטים ללינקדאין (טקסט)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>סרטוני וידאו קצרים (Reels/Shorts)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>מאמרים / בלוג טכני</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>Case Studies / סיפורי הצלחה</span>
+      </div>
+    </div>
+    <div class="options-grid" style="margin-top: 10px;">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>ניוזלטר שבועי/חודשי</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>גרפיקות / אינפוגרפיקות</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>סרטוני וידאו עם אווטר AI (אופציונלי)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אחר: ________</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">3.3</span>
+      באילו פלטפורמות אתם רוצים נוכחות? (סדר לפי עדיפות)
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>LinkedIn (עדיפות ראשונה)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>YouTube</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>Twitter / X</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אתר / בלוג</span>
+      </div>
+    </div>
+    <div class="options-grid" style="margin-top: 10px;">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אינסטגרם</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>ניוזלטר (מייל)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>TikTok</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אחר: ________</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">3.4</span>
+      כמה פעמים בשבוע אתם רוצים לפרסם תוכן? (המצב הרצוי)
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>2-3 פעמים בשבוע</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>כל יום</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>פעם בשבוע</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>לא בטוחים — תציעו</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">3.5</span>
+      מה ייחשב "הצלחה" עבורכם? מתי תגידו "המערכת הזו עובדת"?
+    </div>
+    <div class="question-hint">למשל: 5 לידים בחודש מלינקדאין, 10K צפיות בחודש, חיסכון של 20 שעות בחודש...</div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+</div>
+
+<!-- SECTION 4: VOICE & BRAND -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">4</div>
+    <div>
+      <div class="section-title">קול ומיתוג</div>
+      <div class="section-desc">כדי שהתוכן ידבר בשפה שלכם — לא בשפה גנרית</div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">4.1</span>
+      באיזו שפה הלקוחות שלכם מדברים?
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>עברית בלבד</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אנגלית בלבד</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>עברית + אנגלית</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אחר: ________</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">4.2</span>
+      איזה טון מתאים לחברה שלכם? (סמנו עד 3)
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>מקצועי ומדויק</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>טכני ולעומק</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>ידידותי ונגיש</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>מעורר השראה / Thought Leadership</span>
+      </div>
+    </div>
+    <div class="options-grid" style="margin-top: 10px;">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>ישיר ותכל'סי</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>חדשני ועתידני</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>סיפורי / נרטיבי</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אחר: ________</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">4.3</span>
+      מי מכם יהיה "הפנים" של התוכן?
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>יוסי — פרופיל אישי</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>יעקב — פרופיל אישי</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>שניכם — כל אחד בתחומו</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>תוכן מדף החברה בלבד</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">4.4</span>
+      תנו דוגמה לחברה או אדם שהתוכן שלהם מוצא חן בעיניכם
+    </div>
+    <div class="question-hint">יכול להיות פרופיל לינקדאין, ערוץ יוטיוב, בלוג... משהו שאתם רוצים להיות כמוהו</div>
+    <span class="priority-tag priority-nice">נחמד לדעת</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">4.5</span>
+      האם יש לכם קווים מנחים למותג? (לוגו, צבעים, פונט, מדריך מותג)
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>כן, יש מדריך מותג מסודר</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>יש לוגו + צבעים בסיסיים</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אין כלום, צריך לבנות</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אחר: ________</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: WEBSITE REDESIGN -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">5</div>
+    <div>
+      <div class="section-title">עיצוב מחדש של האתר</div>
+      <div class="section-desc">האתר הנוכחי (Wix) לא עושה צדק לחברה — בואו נבין מה צריך</div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">5.1</span>
+      מה מפריע לכם באתר הנוכחי? מה לא עובד?
+    </div>
+    <div class="question-hint">עיצוב מיושן, לא מביא לידים, לא מייצג את החברה, איטי, לא מקצועי...</div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">5.2</span>
+      מה האתר צריך להשיג? (סמנו את כל מה שרלוונטי)
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>להביא לידים (טפסי יצירת קשר)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>לשדר מקצועיות ואמינות</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>להציג Case Studies / סיפורי הצלחה</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>בלוג טכני (תוכן + SEO)</span>
+      </div>
+    </div>
+    <div class="options-grid" style="margin-top: 10px;">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>דו-שפתי (עברית + אנגלית)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אזור לקוחות / פורטל</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>גיוס עובדים (Careers)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אחר: ________</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">5.3</span>
+      יש לכם דוגמה לאתר של חברה דומה שאהבתם?
+    </div>
+    <div class="question-hint">לינק לאתר שהעיצוב / המבנה / האווירה שלו מתאימים לכם</div>
+    <span class="priority-tag priority-nice">נחמד לדעת</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">5.4</span>
+      האם יש תוכן קיים שצריך לעבור לאתר החדש?
+    </div>
+    <div class="question-hint">טקסטים, תמונות, לוגואים של לקוחות, המלצות...</div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+</div>
+
+<!-- SECTION 6: AUTOMATION & WORKFLOW -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">6</div>
+    <div>
+      <div class="section-title">אוטומציה ותהליך עבודה</div>
+      <div class="section-desc">כמה "אוטומטי" אתם רוצים? מה רמת המעורבות שלכם?</div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">6.1</span>
+      מה רמת האוטומציה שאתם רוצים?
+    </div>
+    <span class="priority-tag priority-critical">קריטי</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>100% אוטומטי — לא רוצים לגעת</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אוטומטי עם אישור לפני פרסום</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>חצי-אוטומטי — מקבלים טיוטות לעריכה</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>לא בטוחים — תמליצו</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">6.2</span>
+      כמה זמן בשבוע אתם מוכנים להשקיע בתוכן? (המצב הריאלי)
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אפס — זה בדיוק למה צריך מערכת</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>שעה בשבוע (סקירה + אישור)</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>2-3 שעות בשבוע</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>יותר, אם יהיו כלים טובים</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">6.3</span>
+      האם יש כלים שאתם כבר משתמשים בהם?
+    </div>
+    <div class="question-hint">CRM, כלי שיווק, Buffer/Hootsuite, מערכת מיילים, Notion, Slack...</div>
+    <span class="priority-tag priority-nice">נחמד לדעת</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+</div>
+
+<!-- SECTION 7: BUDGET & TIMELINE -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">7</div>
+    <div>
+      <div class="section-title">תקציב ולו"ז</div>
+      <div class="section-desc">הגדרת מסגרת ריאלית לפרויקט</div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">7.1</span>
+      מה מסגרת התקציב שלכם?
+    </div>
+    <div class="question-hint">זה עוזר לי להתאים את ההיקף — לא מחייב אתכם לכלום</div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>עד 5,000 ₪ הקמה</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>5,000 - 15,000 ₪ הקמה</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>15,000 - 30,000 ₪ הקמה</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>נדבר על זה — תלוי בהיקף</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">7.2</span>
+      האם מעניין אתכם גם ריטיינר חודשי (תחזוקה + תוכן שוטף)?
+    </div>
+    <span class="priority-tag priority-important">חשוב</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>כן, אני רוצה חבילה חודשית</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אולי, תלוי בעלות</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>לא, רק הקמה חד-פעמית</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>נדבר על זה אחרי שנראה תוצאות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">7.3</span>
+      מה הלו"ז? עד מתי אתם רוצים שזה יעבוד?
+    </div>
+    <span class="priority-tag priority-nice">נחמד לדעת</span>
+    <div class="options-grid">
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>בהקדם האפשרי</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>תוך חודש</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>תוך 2-3 חודשים</span>
+      </div>
+      <div class="option-item" onclick="this.classList.toggle('selected')">
+        <div class="option-check"></div>
+        <span>אין לחץ, חשוב שיהיה נכון</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-label">
+      <span class="q-num">7.4</span>
+      עוד משהו שחשוב לכם שאדע?
+    </div>
+    <span class="priority-tag priority-nice">נחמד לדעת</span>
+    <div class="answer-box" contenteditable="true">הקלד כאן...</div>
+  </div>
+</div>
+
+<!-- NEXT STEPS -->
+<div class="next-steps">
+  <h2>מה קורה אחרי שתמלאו?</h2>
+  <ol>
+    <li>ממלאים את השאלון (לוקח 10-15 דקות)</li>
+    <li>אני עובר על התשובות ומכין <strong>הצעת מחיר מדויקת + תוכנית עבודה</strong></li>
+    <li>שיחה קצרה לסגירת פרטים (אם צריך)</li>
+    <li>מתחילים לבנות!</li>
+  </ol>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>נבנה על ידי <span class="brand">Y<span>-Community</span></span> | רפאל יניב הרוש</p>
+  <p style="margin-top: 8px; opacity: 0.6;">מרץ 2026</p>
+</div>
+
+<script>
+  // Clear placeholder on focus, restore on blur if empty
+  document.querySelectorAll('.answer-box[contenteditable]').forEach(box => {
+    const placeholder = box.textContent.trim();
+    box.addEventListener('focus', function() {
+      if (this.textContent.trim() === placeholder) {
+        this.textContent = '';
+        this.style.fontStyle = 'normal';
+        this.style.color = 'var(--gray-800)';
+      }
+    });
+    box.addEventListener('blur', function() {
+      if (this.textContent.trim() === '') {
+        this.textContent = placeholder;
+        this.style.fontStyle = 'italic';
+        this.style.color = 'var(--gray-600)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
