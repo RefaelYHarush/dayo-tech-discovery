@@ -1209,7 +1209,7 @@
   const SUPABASE_URL = 'https://lyzwyondclnktngnplbq.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5end5b25kY2xua3RuZ25wbGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NDk5MjMsImV4cCI6MjA4NzUyNTkyM30.mZjhyOef3UQuU4S8ez0tk-M2jSNUkT2Ng_uY57D17Og';
   const SLUG = 'dayo-tech';
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { db: { schema: 'client_work' } });
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   let responses = {};
   let saveTimeout = null;
